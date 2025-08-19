@@ -47,10 +47,6 @@ Permite login de usuários comuns e admin, com menus diferenciados e páginas ex
 
 ---
 
-## Como rodar
-
-1. Clone o repositório:
-
 # Como rodar
 
 1. Clone o repositório:
