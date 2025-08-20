@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Gerar Imagem com IA";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-area="User" asp-controller="Image" asp-action="Generate" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label for="prompt" class="form-label">Digite seu prompt:</label>
+        <input type="text" class="form-control" id="prompt" name="prompt" placeholder="Ex: um dragão em estilo anime" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Gerar</button>
+</form>

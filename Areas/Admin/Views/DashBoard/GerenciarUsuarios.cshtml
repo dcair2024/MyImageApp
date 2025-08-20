@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MyImageApp.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Gerenciar Usuários";
+}
+
+<h2>Gerenciar Usuários</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Admin?</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>@user.IsAdmin</td>
+                <td>
+                    <form asp-action="ExcluirUsuario" asp-route-id="@user.Id" method="post" style="display:inline">
+                        <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                    </form>
+
+                    @if (!user.IsAdmin)
+                    {
+                        <form asp-action="PromoverAdmin" asp-route-id="@user.Id" method="post" style="display:inline">
+                            <button type="submit" class="btn btn-success btn-sm">Tornar Admin</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="btn btn-secondary">Voltar</a>
