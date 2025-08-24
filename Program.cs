@@ -94,7 +94,7 @@ app.UseAuthorization();
 // Rotas para áreas
 app.MapControllerRoute(
     name: "areas",
-    pattern: "{area:exists}/{controller=Image}/{action=Index}/{id?}");
+    pattern: "{area:exists}/{controller=User}/{action=Index}/{id?}");
 
 
 
@@ -106,3 +106,4 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+

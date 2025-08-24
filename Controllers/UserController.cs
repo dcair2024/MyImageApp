@@ -20,6 +20,12 @@ public class UserController : Controller
         _userManager = userManager;
     }
 
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+
     public IActionResult Dashboard()
     {
         var userId = _userManager.GetUserId(User);

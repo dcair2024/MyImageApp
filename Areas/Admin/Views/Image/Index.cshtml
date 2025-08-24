@@ -2,15 +2,27 @@
     ViewData["Title"] = "Gerar Imagem com IA";
 }
 
-<h2>@ViewData["Title"]</h2>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4 text-center">Gerar Imagem com IA</h2>
 
-<form asp-area="User" asp-controller="Image" asp-action="Generate" method="post">
-    @Html.AntiForgeryToken()
+            <!-- Formulário -->
+            <form asp-action="Generate" method="post" class="mb-4">
+                <div class="input-group">
+                    <input type="text" name="prompt" class="form-control" placeholder="Ex: um dragão em estilo anime" required />
+                    <button type="submit" class="btn btn-primary">Gerar</button>
+                </div>
+            </form>
 
-    <div class="mb-3">
-        <label for="prompt" class="form-label">Digite seu prompt:</label>
-        <input type="text" class="form-control" id="prompt" name="prompt" placeholder="Ex: um dragão em estilo anime" required>
+            <!-- Exibição da imagem gerada -->
+            @if (ViewBag.ImageUrl != null)
+            {
+                <div class="text-center">
+                    <h5>Resultado:</h5>
+                    <img src="@ViewBag.ImageUrl" alt="Imagem gerada" class="img-fluid rounded shadow" />
+                </div>
+            }
+        </div>
     </div>
-
-    <button type="submit" class="btn btn-success">Gerar</button>
-</form>
+</div>
